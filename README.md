@@ -2,18 +2,16 @@
 
 ## users テーブル
 
-| Column            | Type    | Option                     |
-| ----------------- | ------- | -------------------------- |
-| nickname          | string  | null: false                |
-| email             | string  | null: false, unique: true  |
-| password          | string  | null: false                |
-| first_name        | string  | null: false                |
-| first_name(kana)  | string  | null: false                |
-| last_name         | string  | null: false                |
-| last_name(kana)   | string  | null: false                |
-| year              | string  | null: false                |
-| month             | string  | null: false                |
-| day               | string  | null: false                |
+| Column             | Type    | Option                     |
+| -----------------  | ------- | -------------------------- |
+| nickname           | string  | null: false                |
+| email              | string  | null: false, unique: true  |
+| encrypted_password | string  | null: false                |
+| first_name         | string  | null: false                |
+| first_name(kana)   | string  | null: false                |
+| last_name          | string  | null: false                |
+| last_name(kana)    | string  | null: false                |
+| birthday           | date    | null: false                |
 
 ### Association
 
@@ -22,18 +20,17 @@
 
 ## items テーブル
 
-| Column               | Type                 | Option             |
-| -------------------- | -------------------- | ------------------ |
-| image                | active storageで実装  |                    |
-| product_name         | text                 | null: false        |
-| description_of_item  | text                 | null: false        |
-| category             | active hashで実装     |                    |
-| product_condition    | active hashで実装     |                    |
-| shipping_charges     | active hashで実装     |                    |
-| shipping_area        | active hashで実装     |                    |
-| days_to_ship         | active hashで実装     |                    |
-| price                | integer              | null: false        |
-| user                 | references           | foreign_key: true  |
+| Column                | Type        | Option             |
+| --------------------- | ----------- | ------------------ |
+| product_name          | string      | null: false        |
+| description_of_item   | text        | null: false        |
+| category_id           | integer     | active hashで実装   |
+| product_condition_id  | integer     | active hashで実装   |
+| shipping_charges_id   | integer     | active hashで実装   |
+| prefectures_id        | integer     | active hashで実装   |
+| days_to_ship_id       | integer     | active hashで実装   |
+| price                 | integer     | null: false        |
+| user                  | references  | foreign_key: true  |
 
 ### Association
 
@@ -55,16 +52,15 @@
 
 ## addresses テーブル
 
-| Column         | Type                   | Option              |
-| -------------- | ---------------------- | ------------------- |
-| postal_code    | integer                | null: false         |
-| prefectures    | string                 | null: false         |
-| municipality   | text                   | null: false         |
-| address        | text                   | null: false         |
-| building_name  | text                   |                     |
-| phone_number   | integer                | null: false         |
-| credit_card    | テーブルには保存しない！   |                     |
-| record         | references             | foreign_key: true   |
+| Column          | Type                   | Option              |
+| --------------- | ---------------------- | ------------------- |
+| postal_code     | string                 | null: false         |
+| prefectures_id  | integer                | active hashで実装    |
+| municipality    | string                 | null: false         |
+| address         | string                 | null: false         |
+| building_name   | string                 |                     |
+| phone_number    | string                 | null: false         |
+| record          | references             | foreign_key: true   |
 
 ### Association
 
