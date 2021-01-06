@@ -24,11 +24,11 @@
 | --------------------- | ----------- | ------------------ |
 | product_name          | string      | null: false        |
 | description_of_item   | text        | null: false        |
-| category_id           | integer     | active hashで実装   |
-| product_condition_id  | integer     | active hashで実装   |
-| shipping_charges_id   | integer     | active hashで実装   |
-| prefectures_id        | integer     | active hashで実装   |
-| days_to_ship_id       | integer     | active hashで実装   |
+| category_id           | integer     | null: false        |
+| product_condition_id  | integer     | null: false        |
+| shipping_charge_id    | integer     | null: false        |
+| prefecture_id         | integer     | null: false        |
+| days_to_ship_id       | integer     | null: false        |
 | price                 | integer     | null: false        |
 | user                  | references  | foreign_key: true  |
 
@@ -55,7 +55,7 @@
 | Column          | Type                   | Option              |
 | --------------- | ---------------------- | ------------------- |
 | postal_code     | string                 | null: false         |
-| prefectures_id  | integer                | active hashで実装    |
+| prefecture_id   | integer                | null: false         |
 | municipality    | string                 | null: false         |
 | address         | string                 | null: false         |
 | building_name   | string                 |                     |
