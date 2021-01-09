@@ -5,6 +5,9 @@ class User < ApplicationRecord
   with_options presence: true do
     validates :nickname
     validates :birthday
+
+    PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i.freeze
+    validates_format_of :password, with: PASSWORD_REGEX, message: 'には半角英数字混合文字を使用してください'
   end
 
   with_options presence: true, format: { with: /\A[ぁ-んァ-ヶ一-龥々]+\z/, message: 'には全角文字を使用してください' } do
@@ -16,7 +19,4 @@ class User < ApplicationRecord
     validates :last_name_kana
     validates :first_name_kana
   end
-
-  PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i.freeze
-  validates_format_of :password, with: PASSWORD_REGEX, message: 'には半角英数字混合文字を使用してください'
 end
