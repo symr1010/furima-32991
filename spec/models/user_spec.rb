@@ -8,7 +8,7 @@ RSpec.describe User, type: :model do
 
     it '全ての値が問題なければ登録できること' do
       expect(@user).to be_valid
-    end  
+    end
 
     it 'nicknameが空では登録できないこと' do
       @user.nickname = nil
@@ -58,22 +58,22 @@ RSpec.describe User, type: :model do
       @user.password = '000000'
       @user.password_confirmation = '000000'
       @user.valid?
-      expect(@user.errors.full_messages).to include("Password には半角英数字混合文字を使用してください")
+      expect(@user.errors.full_messages).to include('Password には半角英数字混合文字を使用してください')
     end
 
     it 'passwordは、英文字のみでは登録できないこと' do
       @user.password = 'abcdef'
       @user.password_confirmation = 'abcdef'
       @user.valid?
-      expect(@user.errors.full_messages).to include("Password には半角英数字混合文字を使用してください")
-    end  
+      expect(@user.errors.full_messages).to include('Password には半角英数字混合文字を使用してください')
+    end
 
     it 'passwordは、全角では登録できないこと' do
       @user.password = 'ABCDEF'
       @user.password_confirmation = 'ABCDEF'
       @user.valid?
-      expect(@user.errors.full_messages).to include("Password には半角英数字混合文字を使用してください")
-    end  
+      expect(@user.errors.full_messages).to include('Password には半角英数字混合文字を使用してください')
+    end
 
     it 'passwordは、確認用を含めて2回入力しないと登録できないこと' do
       @user.password_confirmation = ''
