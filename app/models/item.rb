@@ -3,7 +3,7 @@ class Item < ApplicationRecord
     validates :image
     validates :product_name
     validates :description_of_item
-    validates :price, presence: true
+    validates :price
   end
 
   validates_inclusion_of :price, in: 300..9_999_999
