@@ -9,7 +9,7 @@ class Item < ApplicationRecord
   validates_inclusion_of :price, in: 300..9_999_999
   validates :price, numericality: { with: /\A[0-9]+\z/, message: 'Half-width number' }
 
-  with_options numericality: { other_than: 1 } do
+  with_options numericality: { other_than: 1, message: 'Select'} do
     validates :category_id 
     validates :product_condition_id
     validates :shipping_charge_id
