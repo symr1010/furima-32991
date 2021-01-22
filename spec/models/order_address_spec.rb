@@ -70,7 +70,7 @@ RSpec.describe OrderAddress, type: :model do
       it '電話番号が英数混合の場合保存できないこと' do
         @order_address.phone_number = '0a0a0a0a0a0'
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("Phone number Input only number")
+        expect(@order_address.errors.full_messages).to include('Phone number Input only number')
       end
 
       it 'user_idが空の場合保存できないこと' do
@@ -90,6 +90,6 @@ RSpec.describe OrderAddress, type: :model do
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include("Order can't be blank")
       end
-    end  
+    end
   end
 end
