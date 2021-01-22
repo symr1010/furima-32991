@@ -84,12 +84,6 @@ RSpec.describe OrderAddress, type: :model do
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include("Item can't be blank")
       end
-
-      it 'order_idが空の場合保存できないこと' do
-        @order_address.order_id = nil
-        @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("Order can't be blank")
-      end
     end
   end
 end
