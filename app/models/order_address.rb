@@ -9,6 +9,9 @@ class OrderAddress
     validates :municipality
     validates :address
     validates :phone_number, format: { with: /\A\d{11}\z/, less_than_or_equal_to: 11, message: 'Input only number' }
+    validates :user_id
+    validates :item_id
+    validates :order_id
   end
 
   with_options numericality: { other_than: 1, message: 'Select' } do
